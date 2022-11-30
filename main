@@ -18,12 +18,18 @@ echo -e "# # # # # # # # # # # # # # # # # # # "
 sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates && curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt -y install nodejs
 echo -e "# # # # # # # # # # # # # # # # # # # "
-echo -e "# # #  INSTALANDO LIB BAILEYS # # # # # "
+echo -e "# # #  CLONANDO REPOSITORIO # # # # # "
 echo -e "# # # # # # # # # # # # # # # # # # # "
 git clone https://github.com/parabaiano/botzap.git
+echo -e "# # # # # # # # # # # # # # # # # # # # # # # "
+echo -e "# # #  ABRINDO PASTA DO REPOSITORIO # # # # # "
+echo -e "# # # # # # # # # # # # # # # # # # # # # # # "
 cd botzap
+echo -e "# # # # # # # # # # # # # # # # # # # # # # # "
+echo -e "# # # INSTALANDO AS LIB DO REPOSITORIO # # # # # "
+echo -e "# # # # # # # # # # # # # # # # # # # # # # # "
 sudo npm install
+echo -e "# # # # # # # # # # # # # # # # # # # "
+echo -e "# # # RODANDO O BOT PARA TESTE # # # # # "
+echo -e "# # # # # # # # # # # # # # # # # # # "
 node bot.js
-echo -e "# # # # # # # # # # # # # # # # # # # "
-echo -e "# # #     INSTALANDO PM2    # # # # # "
-echo -e "# # # # # # # # # # # # # # # # # # # "

@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo -e "# # # # # # # # # # # # # # # # # # "
+echo -e "# # # # INCIANDO INSTALAÇÃO # # # # "
+echo -e "# # # # # # # # # # # # # # # # # # "
+
+echo -e "# # # # # # # # # # # # # # # # # # "
+echo -e "# # #  INCIANDO UPDATE  # # # # # # "
+echo -e "# # # # # # # # # # # # # # # # # # "
+sudo apt update -y
+echo -e "# # # # # # # # # # # # # # # # # # "
+echo -e "# # #  INCIANDO UPGRADE # # # # # # "
+echo -e "# # # # # # # # # # # # # # # # # # "
+sudo apt upgrade -y
+echo -e "# # # # # # # # # # # # # # # # # # # "
+echo -e "# # #  INSTALANDO  NODE.js  # # # # # "
+echo -e "# # # # # # # # # # # # # # # # # # # "
+sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates && curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt -y install nodejs
+echo -e "# # # # # # # # # # # # # # # # # # # "
+echo -e "# # #  INSTALANDO LIB BAILEYS # # # # # "
+echo -e "# # # # # # # # # # # # # # # # # # # "
+cd botbai
+sudo npm install
+node bot.js
+echo -e "# # # # # # # # # # # # # # # # # # # "
+echo -e "# # #     INSTALANDO PM2    # # # # # "
+echo -e "# # # # # # # # # # # # # # # # # # # "

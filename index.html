@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./assets/style.css" />
+	<title>Whatsapp API Parabaiano</title>
+</head>
+<body>	
+	<div class="main-login">
+		<div class="left-login">			
+			<h2><i>Whatsapp API</i></h2>
+			<p>Aponte a camera do seu celular para o Qr Code para conectar com o seu bot</p>
+			<h4>Bs MOD</h4>
+			<div class="qrcode">
+				<img src="" alt="QR Code" id="qrcode">
+		      <img src="" alt="Check" id="check">
+			</div>		
+		</div>
+		<div class="right-login">
+			<div class="card-login">
+				<h1>Suporte</h1>
+				<button class="btdel"> <a href="https://wa.me/+5571999486375/"> WhatsApp </a></button>
+				<h1>Sessão</h1>
+				<button class="btdel" onclick="deletarSessao()" id="btn2">Deletar sessão</button>
+			  <h1>Logs:</h1>
+				<ul class="logs" id="log"></ul>
+			</div>
+		</div>
+	</div>  
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" crossorigin="anonymous"></script>
+	<script>
+		const socket = io()
+		socket.on('qr', function(src) {
+			$('#qrcode').attr('src', src);
+			$('#qrcode').show();
+			$('#check').hide();
+			setTimeout(function(){
+			window.location.reload(true);
+			}, 5000);
+		});
+		socket.on('check', function(src) {
+			$('#check').attr('src', src);
+			$('#check').show();
+			$('#qrcode').hide();
+		});
+		socket.on('message', function(msg) {
+			$('.logs').append($('<li>').text(msg));
+		});
+		function deletarSessao(data) {
+         socket.emit('delete-session');
+		alert('© BOT-BS - Sessão removida.')
+		$('.logs').append($('<li>').text('© BOT-BS - Aguarde alguns segundos, e verifique se a sessão foi removida do seu dipositivo. Em caso negativo, remova a sessão manualmente e clique no botão novamente.'));
+		window.location.reload(true);
+      }
+	</script>
+</body>
+</html>

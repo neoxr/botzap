@@ -20,7 +20,8 @@ sudo apt -y install nodejs
 echo -e "# # # # # # # # # # # # # # # # # # # "
 echo -e "# # #  INSTALANDO LIB BAILEYS # # # # # "
 echo -e "# # # # # # # # # # # # # # # # # # # "
-cd botbai
+git clone https://github.com/parabaiano/botzap.git
+cd botzap
 sudo npm install
 node bot.js
 echo -e "# # # # # # # # # # # # # # # # # # # "

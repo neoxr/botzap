@@ -28,7 +28,11 @@ app.get('/', (req, res) => {
   });
 
 
-
+const btmenu = [
+   { buttonId: 'compra', buttonText: { displayText: '⭐ COMPRAR UM IMÓVEL ⭐' }, type: 1 },
+   { buttonId: 'vender', buttonText: { displayText: '⭐ VENDER UM IMÓVEL ⭐' }, type: 1 },
+   { buttonId: 'alugar', buttonText: { displayText: '⭐ ALUGAR UM IMÓVEL ⭐' }, type: 1 },
+]
 
 const BsGroupCheck = (jid) => {
    const regexp = new RegExp(/^\d{18}@g.us$/)
@@ -135,7 +139,13 @@ io.on("connection", async socket => {
    
             // mensagem de texto
             if (conversa === 'oi' && 'Oi') {
-               BsSendMessage(jid, { text:'Olá ' + BsUsuario + ' tudo bem' })
+               const buttonsMessage = {
+                  text: 'Olá ' + BsUsuario + ' tudo bem \n\nEu sou *Paulo* sou corretor de imóveis\nPortador da 🪪 *CRECI - xxxx.xx*\nComo podemos te ajudar 👇🏼',
+                  footer: '© BOT-Bs',
+                  buttons: btmenu,
+                  headerType: 1
+               }
+               BsSendMessage(jid, buttonsMessage)
                   .then(result => console.log('RESULT: ', result))
                   .catch(err => console.log('ERROR: ', err))
             }
